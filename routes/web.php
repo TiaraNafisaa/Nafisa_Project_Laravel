@@ -15,5 +15,5 @@ Route::get('/welcome', function () {
 });
 
 Route::get('/about', function () {
-    return "Tentang Que"; // menuju ke file text Tentang Que
+    return view('about'); // menuju ke file about.blade.php
 });
