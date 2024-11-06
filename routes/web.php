@@ -1,19 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('index'); // menuju ke file welcome.blade.php
-});
-
-Route::get('/login', function () {
-    return view('login'); // menuju ke file login
-});
+use App\Http\Controllers\HomeController;
 
 Route::get('/welcome', function () {
-    return view('welcome'); // menuju ke file welcome.blade.php
+    return view('welcome');
 });
 
-Route::get('/about', function () {
-    return view('about'); // menuju ke file about.blade.php
-});
+// Route::get('/index', function () {
+//     return view('index');
+// });
+
+// Route::get('/login', function () {
+//     return view('login');
+// });
+
+// Route::get('/about', function () {
+//     return view('about');
+// });
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/login', [HomeController::class, 'login'])->name('login');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
